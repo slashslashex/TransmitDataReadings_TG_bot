@@ -1,0 +1,68 @@
+<form action="/dalsbyt/private_clients/pokazaniya/index.php" method="post">
+<input name="step" id="step" type="hidden" value="1">
+<div class="formdiv"><span style="color: #ff0000">*</span> Ваш регион:</div>
+<div class="formdiv">
+	<div class="dropdown bootstrap-select form-control required"><select class="form-control required" style="width: 100%" name="branch" id="branch" onclick="branchmanuallyselected()">
+				<option value="aes">Амурская область (Амурэнергосбыт)</option>
+				<option value="eao">Еврейская автономная область (Энергосбыт ЕАО)</option>
+				<option value="kam">Камчатский край (Камчатскэнергосбыт)</option>
+				<option value="ner">Нерюнгринский район (Якутскэнергосбыт)</option>
+				<option value="des">Приморский край (Дальэнергосбыт)</option>
+				<option value="yak">Республика Саха, Якутия (Якутскэнергосбыт)</option>
+				<option value="hes">Хабаровский край (Хабаровскэнергосбыт)</option>
+			</select><button type="button" tabindex="-1" class="btn dropdown-toggle btn-light" data-toggle="dropdown" role="combobox" aria-owns="bs-select-1" aria-haspopup="listbox" aria-expanded="false" data-id="branch" title="Приморский край (Дальэнергосбыт)"><div class="filter-option"><div class="filter-option-inner"><div class="filter-option-inner-inner">Приморский край (Дальэнергосбыт)</div></div> </div></button><div class="dropdown-menu "><div class="inner show" role="listbox" id="bs-select-1" tabindex="-1"><ul class="dropdown-menu inner show" role="presentation"></ul></div></div></div>
+</div>
+<div id="peredacha">
+	<div class="formdiv"><span style="color: #ff0000">*</span> Укажите номер лицевого счета</div>
+	<div class="formdiv">
+		<input class="form-control required" value="" name="account" id="account" type="text">
+	</div>
+	<div class="formdiv"><span style="color: #ff0000">*</span> Укажите номер прибора учета</div>
+	<div class="formdiv">
+		<input class="form-control required" value="" name="meter" id="meter" type="text">
+	</div>
+	<div style="margin:10px 0 8px 15px; text-align:left">Внимание! Вводить номера лицевого счета и прибора учета нужно именно так, как они указаны в ваших квитанциях.</div>
+	<div class="formdiv"></div>
+	<div class="formdiv"><input class="btn btn-primary" type="submit" value="Отправить"></div>
+</div>
+<!-- <div id="neperedacha" style="display:none">
+	<div style="margin-top:15px; color:#a61218">Показания счетчиков электрической энергии<br>в настоящее время не принимаются.</div>
+</div> -->
+
+	<input name="csrftoken" value="179ac3f936548814d57fa34f0efa82c59de9c6b81a30c0c9a1ac562191654b13900c5fef26342c5d" type="hidden"></form>
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+алерт
+<div id="alert">
+                            <span class="msg">Ошибка. Не найден номер лицевого счета.</span>
+                          </div>
+-----------------------------------------------------------------------------------------------
+<table cellpadding="10" class="table-data2">
+    <tbody><tr>
+      <th colspan="2"><span id="reading1title" style="font-size: 12pt">Показания:</span></th>
+    </tr>
+    <tr>
+      <td>Предыдущие показания</td>
+      <td>
+        <input readonly="" onclick="$('#reading1').val($(this).val())" style="cursor: pointer; min-width: 50px; background-color: #f5f5f5" value="06020" type="text">
+      </td>
+    </tr>
+    <tr>
+      <td>Текущие показания <span style="color: #ff0000">*</span></td>
+      <td>
+        <input id="reading1" style="min-width: 50px" class="required" value="" name="reading1" type="text">
+      </td> 
+    </tr>
+
+    
+
+
+
+    <tr>
+    <td style="text-align: center; background:none" colspan="2"><input type="submit" value="Отправить" style="padding: 9px 12px;"></td>
+    </tr>
+  </tbody></table>
+
+
+
+
