@@ -1,0 +1,60 @@
+{
+  "name": "zoon/puphpeteer",
+  "description": "A Puppeteer bridge for PHP, supporting the entire API.",
+  "keywords": [
+    "php",
+    "puppeteer",
+    "headless-chrome",
+    "testing",
+    "web",
+    "developer-tools",
+    "automation"
+  ],
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Johann Pardanaud",
+      "email": "pardanaud.j@gmail.com"
+    }
+  ],
+  "require": {
+    "php": "^8.0",
+    "ext-json": "*",
+    "composer/semver": "^3.0",
+    "zoon/rialto": "^1.5",
+    "psr/log": "^3.0",
+    "thecodingmachine/safe": "^2.5"
+  },
+  "require-dev": {
+    "friendsofphp/php-cs-fixer": "^3.2",
+    "monolog/monolog": "^3.0",
+    "phpstan/phpstan": "^1.10",
+    "phpunit/phpunit": "^9.0",
+    "symfony/console": "^6.3",
+    "symfony/filesystem": "^6.3",
+    "symfony/process": "^6.3",
+    "symfony/var-dumper": "^6.3",
+    "thecodingmachine/phpstan-safe-rule": "^1.2"
+  },
+  "autoload": {
+    "psr-4": {
+      "Nesk\\Puphpeteer\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Nesk\\Puphpeteer\\Tests\\": "tests/"
+    }
+  },
+  "scripts": {
+    "post-install-cmd": "npm install",
+    "test": "./vendor/bin/phpunit",
+    "update-docs": "php bin/console doc:generate",
+    "stan": "vendor/bin/phpstan analyze packages/*/src",
+    "format": "vendor/bin/php-cs-fixer fix"
+  },
+  "config": {
+    "sort-packages": true
+  }
+}

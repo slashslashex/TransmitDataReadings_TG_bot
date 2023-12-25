@@ -26,7 +26,8 @@ Artisan::command('reg', function () {
     $bot = TelegraphBot::find(1);
 
     dd($bot->registerCommands([
-        'start' => 'Начать работу',
+        'post' => 'Передать показания',
+        'get' => 'Экспорт в Excel'
     ])->send());
 });
 

@@ -13,9 +13,11 @@ return new class extends Migration
     {
         Schema::create('d_v_e_c_electricity_readings', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('previous readings');
-            $table->unsignedBigInteger('new readings');
-            $table->unsignedBigInteger('difference');
+            $table->date('transmit_date')->nullable();
+            $table->unsignedBigInteger('previous_readings')->nullable();
+            $table->unsignedBigInteger('new_readings')->nullable();
+            $table->bigInteger('difference')->nullable();
+            $table->text('comment')->nullable();
             $table->timestamps();
         });
     }

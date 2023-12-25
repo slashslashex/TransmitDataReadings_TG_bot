@@ -1,0 +1,8 @@
+{
+    "name": "phpv8/v8js-stubs",
+    "description": "IDE stubs for V8Js PHP extension",
+    "license": "MIT",
+    "require": {
+        "php": ">=7.0.0"
+    }
+}

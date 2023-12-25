@@ -13,9 +13,11 @@ return new class extends Migration
     {
         Schema::create('d_v_e_c_hot_water_readings', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('previous readings');
-            $table->unsignedBigInteger('new readings');
-            $table->unsignedBigInteger('difference');
+            $table->date('transmit_date')->nullable();
+            $table->unsignedDecimal('previous_readings', 10, 3)->nullable();
+            $table->unsignedDecimal('new_readings', 10, 3)->nullable();
+            $table->decimal('difference', 10, 3)->nullable();
+            $table->text('comment')->nullable();
             $table->timestamps();
         });
     }

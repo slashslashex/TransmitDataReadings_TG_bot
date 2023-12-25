@@ -23,21 +23,28 @@ class ERKCReadingResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('cold water previous readings')
-                    ->required()
-                    ->numeric(),
-                Forms\Components\TextInput::make('cold water new readings')
-                    ->required()
-                    ->numeric(),
-                Forms\Components\TextInput::make('hot water previous readings')
-                    ->required()
-                    ->numeric(),
-                Forms\Components\TextInput::make('hot water new readings')
-                    ->required()
-                    ->numeric(),
-                Forms\Components\TextInput::make('difference')
-                    ->required()
-                    ->numeric(),
+                Forms\Components\DatePicker::make('transmit_date'),
+                Forms\Components\TextInput::make('cold_water_previous_readings')
+                    ->numeric()
+                    ->mask('99999.999'),
+                Forms\Components\TextInput::make('cold_water_new_readings')
+                    ->numeric()
+                    ->mask('99999.999'),
+                Forms\Components\TextInput::make('hot_water_previous_readings')
+                    ->numeric()
+                    ->mask('99999.999'),
+                Forms\Components\TextInput::make('hot_water_new_readings')
+                    ->numeric()
+                    ->mask('99999.999'),
+                Forms\Components\TextInput::make('cold_water_difference')
+                    ->numeric()
+                    ->mask('99999.999'),
+                Forms\Components\TextInput::make('hot_water_difference')
+                    ->numeric()
+                    ->mask('99999.999'),
+                Forms\Components\Textarea::make('comment')
+                    ->maxLength(65535)
+                    ->columnSpanFull(),
             ]);
     }
 
@@ -45,20 +52,26 @@ class ERKCReadingResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('cold water previous readings')
-                    ->numeric()
+                Tables\Columns\TextColumn::make('transmit_date')
+                    ->date('Y.m')
                     ->sortable(),
-                Tables\Columns\TextColumn::make('cold water new readings')
-                    ->numeric()
+                Tables\Columns\TextColumn::make('cold_water_previous_readings')
+                    ->numeric('3', '.')
                     ->sortable(),
-                Tables\Columns\TextColumn::make('hot water previous readings')
-                    ->numeric()
+                Tables\Columns\TextColumn::make('cold_water_new_readings')
+                    ->numeric('3', '.')
                     ->sortable(),
-                Tables\Columns\TextColumn::make('hot water new readings')
-                    ->numeric()
+                Tables\Columns\TextColumn::make('hot_water_previous_readings')
+                    ->numeric('3', '.')
                     ->sortable(),
-                Tables\Columns\TextColumn::make('difference')
-                    ->numeric()
+                Tables\Columns\TextColumn::make('hot_water_new_readings')
+                    ->numeric('3', '.')
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('cold_water_difference')
+                    ->numeric('3', '.')
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('hot_water_difference')
+                    ->numeric('3', '.')
                     ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()

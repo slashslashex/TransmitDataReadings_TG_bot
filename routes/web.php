@@ -22,10 +22,32 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('migrate/fresh', function () {
-    $fresh = Artisan::call('migrate:fresh');
+Route::get('convert', function () {
+    return view('convert');
+});
+
+Route::get('converterkc', function () {
+    return view('covnerterkc');
+});
+
+Route::get('addbot', function () {
+    return view('addbot');
+});
+
+Route::get('webhook', function () {
+
     try {
-        $fresh = Artisan::call('migrate:fresh');
+        Artisan::call('telegraph:set-webhook');
+        return "webhook set";
+    } catch (\Exception $e) {
+        return 'An error occurred: ' . $e->getMessage();
+    }
+});
+
+Route::get('migrate/fresh', function () {
+
+    try {
+        Artisan::call('migrate:fresh');
         return "fresh migration succeeded";
     } catch (\Exception $e) {
         return 'An error occurred: ' . $e->getMessage();
@@ -34,31 +56,24 @@ Route::get('migrate/fresh', function () {
 
 Route::get('migrate', function () {
     try {
-        $migrate = Artisan::call('migrate');
+        Artisan::call('migrate');
         return "migration succeeded";
     } catch (\Exception $e) {
         return 'An error occurred: ' . $e->getMessage();
     }
 });
 
-//Route::get('test', function () {
-//    $phpBinaryFinder = new PhpExecutableFinder();
-//    $phpBinaryPath = $phpBinaryFinder->find();
-//    $process = new Process([$phpBinaryPath, base_path('artisan'), 'telegraph:set-webhook']);
-////    $process->setoptions(['create_new_console' => true]); //Run process in background
-////    $process->run();
-////$process->start();
-//    $input = new InputStream();
-//    $input->write('6967319981:AAFHSiI7xCiWCr-EcwcEZInPCALYgtVDLVA');
-//    try {
-//        $process->setInput($input);
-//        $process->mustRun();
-//
-//        echo $process->getOutput();
-//    } catch (ProcessFailedException $exception) {
-//        echo $exception->getMessage();
-//    }
-//});
+Route::get('test', function () {
+    return view('erkc');
+});
+
+Route::get('form', function () {
+    return view('dvecForm');
+});
+
+Route::post('form', function () {
+    dd($_POST);
+});
 
 //Route::get('bot', function () {
 //    $phpBinaryFinder = new PhpExecutableFinder();

@@ -9,12 +9,17 @@
     "license": "MIT",
     "require": {
         "php": "^8.1",
+        "dbrekelmans/bdi": "^1.1",
         "defstudio/telegraph": "^1.38",
         "filament/filament": "^3.0-stable",
-        "guzzlehttp/guzzle": "^7.2",
+        "guzzlehttp/guzzle": "^7.8",
         "laravel/framework": "^10.10",
         "laravel/sanctum": "^3.3",
         "laravel/tinker": "^2.8",
+        "maatwebsite/excel": "^3.1",
+        "phpoffice/phpspreadsheet": "^1.29",
+        "phpv8/v8js-stubs": "^1.4",
+        "symfony/browser-kit": "^7.0",
         "symfony/dom-crawler": "^6.3"
     },
     "require-dev": {
